@@ -1,0 +1,26 @@
+.intro { text-align: center; margin-bottom: 36px; }
+.introIcon { font-size: 52px; margin-bottom: 12px; }
+.introTitle { font-family: 'Poppins',sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+.introSub { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+.plansGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 24px; }
+.planCard { background: var(--surface); border: 2px solid var(--border); border-radius: 18px; padding: 28px 24px; cursor: pointer; transition: all 0.25s; position: relative; text-align: center; }
+.planCard:hover { border-color: var(--primary-light); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.planSelected { border-color: var(--primary) !important; background: var(--primary-pale) !important; }
+.planPopular { border-color: var(--primary-light); }
+.popularBadge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 16px; border-radius: 50px; white-space: nowrap; letter-spacing: 0.3px; }
+.planIcon { font-size: 40px; margin-bottom: 12px; }
+.planName { font-family: 'Poppins',sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.planPrice { font-family: 'Poppins',sans-serif; font-size: 36px; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
+.planPeriod { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+.planFeats { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.planFeats li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); }
+.check { color: var(--primary); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.planRadio { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); margin: 0 auto; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.planRadioSelected { border-color: var(--primary); background: var(--primary); }
+.planRadioDot { width: 8px; height: 8px; background: #fff; border-radius: 50%; }
+.detailBox { background: var(--surface); border-radius: 14px; border: 1px solid var(--border); padding: 20px 22px; margin-bottom: 20px; }
+.detailHeader { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 16px; font-weight: 700; }
+.detailText { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 12px; }
+.detailTip { background: var(--primary-pale); color: var(--primary-dark); font-size: 13px; font-weight: 500; padding: 10px 14px; border-radius: 10px; }
+.ctaBtn { font-size: 16px !important; padding: 16px 28px !important; }
+@media(max-width:700px) { .plansGrid { grid-template-columns: 1fr; } }

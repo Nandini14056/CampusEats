@@ -1,0 +1,31 @@
+.page { display: flex; min-height: 100vh; }
+.left { flex: 1; background: linear-gradient(145deg, #3a7065 0%, #4A8C7F 50%, #5BA395 100%); padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; color: #fff; }
+.brand { display: flex; align-items: center; gap: 14px; margin-bottom: 56px; }
+.brandIcon { font-size: 42px; background: rgba(255,255,255,0.15); width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+.brandName { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; line-height: 1; }
+.brandName span { color: #A8DFDA; }
+.brandTag { font-size: 12px; opacity: 0.7; letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
+.headline { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.sub { font-size: 16px; opacity: 0.8; line-height: 1.7; max-width: 360px; margin-bottom: 48px; }
+.stats { display: flex; gap: 32px; }
+.stat { display: flex; flex-direction: column; }
+.stat strong { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; }
+.stat span { font-size: 13px; opacity: 0.7; margin-top: 2px; }
+.right { width: 480px; display: flex; align-items: center; justify-content: center; padding: 40px 32px; background: var(--bg); }
+.card { background: var(--surface); border-radius: 24px; padding: 40px 36px; width: 100%; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+.cardTitle { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.cardSub { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+.roles { display: flex; flex-direction: column; gap: 12px; }
+.roleCard { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1.5px solid var(--border); border-radius: 14px; cursor: pointer; transition: all 0.2s; background: var(--surface); }
+.roleCard:hover { border-color: var(--primary); background: var(--primary-pale); transform: translateX(4px); }
+.roleIcon { font-size: 28px; width: 50px; height: 50px; background: var(--primary-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.roleName { font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+.roleDesc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+.arrow { margin-left: auto; font-size: 20px; color: var(--text-light); }
+.roleCard:hover .arrow { color: var(--primary); }
+@media (max-width: 900px) {
+  .page { flex-direction: column; }
+  .left { padding: 40px 24px; }
+  .headline { font-size: 32px; }
+  .right { width: 100%; }
+}

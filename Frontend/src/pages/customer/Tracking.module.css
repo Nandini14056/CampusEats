@@ -1,0 +1,35 @@
+.main{padding:28px;background:var(--bg)}
+.header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.header h1{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;flex:1}
+.backBtn{background:var(--surface);border:1px solid var(--border);width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.gpsLive{background:#DCFCE7;color:#15803D;font-size:12px;font-weight:600;padding:4px 12px;border-radius:50px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+.layout{display:grid;grid-template-columns:1fr 370px;gap:20px;align-items:start}
+.mapBox{height:500px;border-radius:16px;overflow:hidden;border:1px solid var(--border);position:relative;background:#E8F4F1}
+.mapOverlay{position:absolute;inset:0;background:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;border-radius:16px;z-index:1000}
+.mapWaiting{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:14px;color:var(--text-muted)}
+.panel{background:var(--surface);border-radius:16px;border:1px solid var(--border);padding:22px}
+.oid{font-size:12px;color:var(--text-muted);margin-bottom:4px}
+.panelTitle{font-family:'Poppins',sans-serif;font-size:18px;font-weight:800;margin-bottom:20px}
+.steps{display:flex;flex-direction:column;margin-bottom:18px}
+.step{display:flex;align-items:flex-start;gap:12px;padding-bottom:18px;position:relative}
+.step:last-child{padding-bottom:0}
+.stepDot{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;background:var(--surface);flex-shrink:0;z-index:1}
+.stepLine{position:absolute;left:12px;top:26px;width:2px;height:calc(100% - 8px);background:var(--border)}
+.done .stepDot{background:var(--primary);border-color:var(--primary);color:#fff}
+.done .stepLine{background:var(--primary)}
+.active .stepDot{background:var(--orange);border-color:var(--orange);color:#fff;animation:pulseDot 1.5s infinite}
+.stepInfo{padding-top:2px}
+.stepLabel{font-weight:600;font-size:13px;margin-bottom:2px}
+.stepDesc{font-size:11px;color:var(--text-muted)}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.4)}50%{box-shadow:0 0 0 8px rgba(245,158,11,0)}}
+.riderCard{background:var(--primary-pale);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.riderInfo{flex:1}
+.riderName{font-weight:600;font-size:14px}
+.riderPhone{font-size:12px;color:var(--text-muted)}
+.riderRating{font-weight:700;font-size:13px;background:var(--surface);padding:4px 10px;border-radius:50px}
+.orderMeta{background:var(--bg);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.metaRow{display:flex;justify-content:space-between;font-size:12px}
+.metaRow span:first-child{color:var(--text-muted)}
+.metaRow span:last-child{font-weight:500;text-align:right;max-width:200px}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.mapBox{height:320px}}

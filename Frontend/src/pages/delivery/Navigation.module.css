@@ -1,0 +1,25 @@
+.page{display:flex;flex-direction:column;height:100vh;background:#0D1525}
+.header{background:rgba(255,255,255,0.06);padding:13px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;flex-wrap:wrap}
+.backBtn{background:rgba(255,255,255,0.12);border:none;cursor:pointer;width:34px;height:34px;border-radius:50%;font-size:17px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.headerTitle{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;color:#fff;flex:1}
+.orderId{font-size:12px;color:rgba(255,255,255,0.5)}
+.gpsChip{font-size:12px;font-weight:600;padding:4px 10px;border-radius:50px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)}
+.gpsActive{background:rgba(34,197,94,0.2);color:#86efac;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.7}}
+.mapWrap{flex:1;overflow:hidden;min-height:0;position:relative}
+.statsOverlay{position:absolute;top:12px;left:12px;display:flex;gap:8px;z-index:1000;flex-wrap:wrap}
+.statPill{background:rgba(0,0,0,0.65);color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:50px;backdrop-filter:blur(4px)}
+.gpsWarning{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(239,68,68,0.9);color:#fff;font-size:12px;padding:10px 14px;border-radius:10px;z-index:1000;display:flex;align-items:center;gap:6px}
+.panel{background:var(--surface);padding:18px 22px;border-top-left-radius:20px;border-top-right-radius:20px;flex-shrink:0}
+.destLabel{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.destName{font-family:'Poppins',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px}
+.eta{font-size:13px;color:var(--text-muted);margin-bottom:14px}
+.actions{display:flex;gap:10px;margin-bottom:12px}
+.orderInfo{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-muted);background:var(--bg);border-radius:10px;padding:10px 14px}
+/* Success */
+.successPage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg)}
+.successBox{background:var(--surface);border-radius:24px;padding:44px 36px;max-width:400px;width:100%;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow-lg)}
+.successIcon{font-size:64px;margin-bottom:16px}
+.successBox h2{font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;margin-bottom:10px}
+.successBox p{color:var(--text-muted);font-size:14px;margin-bottom:20px}
+.earnCard{background:var(--primary-pale);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--primary-dark);margin-bottom:24px}
