@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import styles from './Navigation.module.css';
 
 const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-const LEAFLET_JS  = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 
 const loadLeaflet = () => new Promise((resolve) => {
   if (window.L) { resolve(window.L); return; }
@@ -44,7 +44,7 @@ export default function DeliveryNavigation() {
   const [distance, setDistance] = useState(null);
 
   useEffect(() => {
-    api.get(`/orders/${orderId}`).then(r => setOrder(r.data)).catch(() => {});
+    api.get(`/orders/${orderId}`).then(r => setOrder(r.data)).catch(() => { });
   }, [orderId]);
 
   // Init Leaflet map
@@ -61,16 +61,16 @@ export default function DeliveryNavigation() {
       // Rider marker (animated)
       const riderIcon = L.divIcon({
         html: `<div id="riderDot" style="background:#4A8C7F;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:20px;border:3px solid #fff;box-shadow:0 2px 12px rgba(74,140,127,0.5)">🛵</div>`,
-        iconSize:[40,40], iconAnchor:[20,20], className:''
+        iconSize: [40, 40], iconAnchor: [20, 20], className: ''
       });
       const destIcon = L.divIcon({
         html: `<div style="background:#EF4444;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.3)">📍</div>`,
-        iconSize:[36,36], iconAnchor:[18,36], className:''
+        iconSize: [36, 36], iconAnchor: [18, 36], className: ''
       });
 
       riderMarkerRef.current = L.marker(defaultCenter, { icon: riderIcon }).addTo(map);
-      destMarkerRef.current  = L.marker(defaultCenter, { icon: destIcon  }).addTo(map).bindPopup('📍 Delivery Destination');
-      trailRef.current = L.polyline([], { color:'#4A8C7F', weight:4, opacity:0.7 }).addTo(map);
+      destMarkerRef.current = L.marker(defaultCenter, { icon: destIcon }).addTo(map).bindPopup('📍 Delivery Destination');
+      trailRef.current = L.polyline([], { color: '#4A8C7F', weight: 4, opacity: 0.7 }).addTo(map);
     });
 
     return () => {
@@ -114,7 +114,7 @@ export default function DeliveryNavigation() {
         // Update location in DB (every 10 positions)
         posHistoryRef.current.push({ lat, lng });
         if (posHistoryRef.current.length % 10 === 0) {
-          api.patch('/auth/me', { location: { lat, lng } }).catch(() => {});
+          api.patch('/auth/me', { location: { lat, lng } }).catch(() => { });
         }
 
         // Calculate distance to destination if dest marker placed
@@ -122,7 +122,7 @@ export default function DeliveryNavigation() {
           const destLatLng = destMarkerRef.current.getLatLng();
           if (destLatLng.lat !== 28.6139) {
             const d = leafletMapRef.current.distance([lat, lng], destLatLng);
-            setDistance(d < 1000 ? `${Math.round(d)} m` : `${(d/1000).toFixed(1)} km`);
+            setDistance(d < 1000 ? `${Math.round(d)} m` : `${(d / 1000).toFixed(1)} km`);
           }
         }
       },
@@ -152,7 +152,7 @@ export default function DeliveryNavigation() {
           destMarkerRef.current.bindPopup(`📍 ${order.deliveryAddress}`).openPopup();
         }
       })
-      .catch(() => {});
+      .catch(() => { });
   }, [order]);
 
   const markDelivered = async () => {
@@ -189,7 +189,9 @@ export default function DeliveryNavigation() {
       <div className={styles.header}>
         <button className={styles.backBtn} onClick={() => navigate('/delivery')}>←</button>
         <span className={styles.headerTitle}>Navigation 🗺️</span>
-        {order && <span className={styles.orderId}>#CE{order._id.slice(-4).toUpperCase()}</span>}
+        {order && <span className={styles.orderId}>
+          #CE{order?._id?.slice(-4)?.toUpperCase() || '----'}
+        </span>}
         <div className={`${styles.gpsChip} ${gpsStatus === 'active' ? styles.gpsActive : ''}`}>
           {gpsStatus === 'active' ? '🟢 GPS Live' : gpsStatus === 'denied' ? '🔴 GPS Off' : '🟡 Finding GPS...'}
         </div>
@@ -197,7 +199,7 @@ export default function DeliveryNavigation() {
 
       {/* Map */}
       <div className={styles.mapWrap}>
-        <div ref={mapRef} style={{ width:'100%', height:'100%' }} />
+        <div ref={mapRef} style={{ width: '100%', height: '100%' }} />
         {/* GPS stats overlay */}
         {gpsStatus === 'active' && (
           <div className={styles.statsOverlay}>
@@ -220,10 +222,10 @@ export default function DeliveryNavigation() {
         {distance && <div className={styles.eta}>{distance} away · ~{getETA(distance)} min ETA</div>}
 
         <div className={styles.actions}>
-          <button className="btn btn-primary btn-lg" style={{flex:1,justifyContent:'center'}} onClick={markDelivered}>
+          <button className="btn btn-primary btn-lg" style={{ flex: 1, justifyContent: 'center' }} onClick={markDelivered}>
             ✅ Mark as Delivered
           </button>
-          <button className="btn btn-ghost" style={{padding:'14px 16px'}} onClick={() => navigate('/delivery')}>✕</button>
+          <button className="btn btn-ghost" style={{ padding: '14px 16px' }} onClick={() => navigate('/delivery')}>✕</button>
         </div>
 
         {order && (
@@ -239,7 +241,7 @@ export default function DeliveryNavigation() {
 }
 
 function getCardinal(deg) {
-  const dirs = ['N','NE','E','SE','S','SW','W','NW'];
+  const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
   return dirs[Math.round(deg / 45) % 8];
 }
 function getETA(distStr) {

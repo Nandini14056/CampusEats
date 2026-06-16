@@ -416,6 +416,20 @@ const riderAcceptedOrder = async (req, res) => {
   }
 }
 
+function getStatusMessage(status) {
+  const m = {
+    placed: '📋 Order received!',
+    confirmed: '✅ Order confirmed by restaurant',
+    preparing: '👨‍🍳 Restaurant is preparing your food',
+    ready: '🍱 Order ready for pickup',
+    picked_up: '🛵 Rider is on the way!',
+    delivered: '✅ Delivered! Enjoy your meal',
+    cancelled: '❌ Order was cancelled'
+  };
+  return m[status] || `Order ${status}`;
+}
+
+
 module.exports = {
   placeOrder,
   getAllOrders,

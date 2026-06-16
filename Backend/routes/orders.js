@@ -21,17 +21,4 @@ router.patch('/:id/status', protect, orderStatus);
 // ─── PATCH /api/orders/:id/accept  (rider accepts order) 
 router.patch('/:id/accept', protect, requireRole('delivery'), riderAcceptedOrder);
 
-function getStatusMessage(status) {
-  const m = {
-    placed: '📋 Order received!',
-    confirmed: '✅ Order confirmed by restaurant',
-    preparing: '👨‍🍳 Restaurant is preparing your food',
-    ready: '🍱 Order ready for pickup',
-    picked_up: '🛵 Rider is on the way!',
-    delivered: '✅ Delivered! Enjoy your meal',
-    cancelled: '❌ Order was cancelled'
-  };
-  return m[status] || `Order ${status}`;
-}
-
 module.exports = router;
